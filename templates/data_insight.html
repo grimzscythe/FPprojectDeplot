@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Death Insights</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+    </style>
+</head>
+<body style = "background-color:gray;">
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/data_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GRAPHS</a>
+            <a href="/model" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PREDICTION</a>
+            <!-- <a href="/death_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADDITIONAL INFO</a> -->
+        </div>
+    </div>
+    <div style = "margin-top: 45px;"></div>
+    <form method="POST" style = "border: 1px solid black; padding-left: 20px; padding-bottom: 20px; padding-top : 5px; background-color:darkgray;">
+        <p>
+            Choose a Country : <SELECT name="country" value = {{country}} onchange= this.form.submit()>
+            {% for _,c in dfcountry.iterrows() %}
+                <OPTION value={{c["index"]}} {{'selected' if c['check']==1}}>{{c['country']}}</option>
+            {% endfor %}
+            </SELECT>
+        </p>
+        <p>
+            <table>
+                <tr>
+                    <td>Choose Continent : </td>
+                    {% for _,c in dfcountry.iterrows() %}
+                        {% if c['check'] == 1 %}
+                            {% for c2 in c['continent'] %}
+                                <td>&emsp;</td>
+                                <td><input type="radio" name="continent" value={{c2}} onchange= this.form.submit() {{'checked' if c2==continent}}></td>
+                                <td><label for={{c2}}}>{{c2}}</label></td>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </table>    
+        </p>
+        <p>
+            <table>
+                <tr>
+                    <td>Choose Factor : </td>
+                    {% for _,f in dffactors.iterrows() %}
+                        <td>&emsp;</td>
+                        <td><input type="radio" name="factor" value={{f['index']}} onchange= this.form.submit() {{'checked' if f['check']==1}}></td>
+                        <td><label for={{f['factor']}}}>{{f['factor']}}</label></td>
+                    {% endfor %}
+                </tr>
+            </table>           
+        </p>
+    </form>
+    
+    <h1 style="color:crimson;font-size:30px;"><strong>Graph of {{factor}} by {{country}} versus {{continent}}</strong></h1>
+    <p align="center"><iframe src='/factorshow' style="height: 2500px; width: 100%; border: 1px solid black;background-color:white;" title="category"></iframe></p>
+</body>

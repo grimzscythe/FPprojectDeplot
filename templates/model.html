@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Model</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+    </style>
+</head>
+<body style = "background-color:gray;">
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/data_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GRAPHS</a>
+            <a href="/model" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PREDICTION</a>
+            <!-- <a href="/death_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADDITIONAL INFO</a> -->
+        </div>
+    </div>
+    <div style = "margin-top: 45px;"></div>
+    <form method="POST" style = "border: 1px solid black; padding-left: 20px; padding-bottom: 20px; padding-top : 5px; background-color:darkgray;">
+        <p>
+            Choose a Country : <SELECT name="country" value = {{countryindata}} onchange= this.form.submit()>
+            {% for _,c in dfcountryindata.iterrows() %}
+                <OPTION value={{c["index"]}} {{'selected' if c['check']==1}}>{{c['country']}}</option>
+            {% endfor %}
+            </SELECT>
+        </p>
+        <p>
+        Choose Year : <SELECT name="year" value = {{yearindata}} onchange= this.form.submit()>
+            {% for _,a in dfyearindata.iterrows() %}
+                <OPTION value={{a['index']}} {{'selected' if a['check']==1}}>{{a['year']}}</option>
+            {% endfor %}
+            </SELECT>    
+        </p>
+        <p> Actual Death Rate : {{deathrate}}</p>
+    </form>
+    <h1 style="color:crimson;font-size:30px;"><strong>Data of {{countryindata}} in year {{yearindata}}</strong></h1>
+    <p style="color:crimson;font-size:20px;">* data per 100,000 people.<p>
+    <p align="center"><iframe src='/deploymodel' style="border:2px;height: 1500px;width: 100%; background-color:white;" title="deploymodel"></iframe></p>
+
+</body>

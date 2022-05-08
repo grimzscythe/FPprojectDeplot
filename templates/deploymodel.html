@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body style = "background-color:gray">
+
+    <form method="POST" style = " padding-left: 20px; padding-bottom: 20px; padding-top : 5px; background-color:gray;">
+        <p style = "font-size : 25px"> Populational Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 1 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name =  {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <p style = "font-size : 25px"> Economical and Political Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 2 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name = {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <p style = "font-size : 25px"> Environmental Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 3 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name = {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <p style = "font-size : 25px"> Health Related Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 4 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name = {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <p style = "font-size : 25px"> Vaccination Coverage Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 5 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name = {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <p style = "font-size : 25px"> Disease and Virus Factors : </p>
+        <table>
+            {% for _,c in dfcolumn.iterrows() %}
+                {% if c['mark']//1 == 6 %}
+                    {% if c['i']%3==0 %} <tr><th><label>&emsp;&emsp;&emsp;&emsp;</label></th>{% endif %}
+                        <th><label>{{c['c']}}</label></th>
+                        <th><label>:</label></th>
+                        <th><label>({{c['new_value']-c['value']}})</label></th>
+                        <th><label>&nbsp;</label><input type = "text" name = {{c['index']}} value={{c['new_value']}}><br></th>
+                    {% if c['i']%3==2 %} </tr>{% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        <p></p>
+        <input type ="submit">
+    </form>
+    <p style = "font-size: 25px;">Original Predict Death Rate :{{original_pred}}</p>
+    <p style = "font-size: 25px;">New Predict Death Rate :{{predict}}</p>
+    <p style = "font-size: 25px;">Change Death Rate :{{diff}}</p>
+</body>

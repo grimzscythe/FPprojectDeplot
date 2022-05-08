@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+        th {
+            padding-left :10px;
+            padding-right: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body style = "background-color:lightgray">
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/data_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GRAPHS</a>
+            <a href="/model" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PREDICTION</a>
+            <!-- <a href="/death_insight" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADDITIONAL INFO</a> -->
+        </div>
+    </div>
+    <div style = "margin-top: 45px;"></div>
+    <div>
+        <h1>  Description </h1>
+        <div style = "padding-left:50px;">
+            <p style = "font-size: 25px;"> About country </p>
+            <table style = "padding-left: 0px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>country name</p></th>
+                    <th><p>Consists of 183 countries around the world under the naming convention of World Health Organization (WHO).</p></th>
+                </tr>
+                <tr>
+                    <th><p>country code </p></th>
+                    <th><p>Short representation of a country in 3-letter ISO 3166-1 alpha-3 codes (e.g., THA represents Thailand).</p></th>
+                </tr>
+                <tr>
+                    <th><p>continent</p></th>
+                    <th><p>Consists of 6 continents as follows: Africa, Asia, Europe, North America, Oceania, and South America.</p></th>
+                </tr>
+                <tr>
+                    <th><p>status</p></th>
+                    <th><p>Binary representation on whether or not a country is a developed one; 0 means developing, 1 means developed.</p></th>
+                </tr>
+                <tr>
+                    <th><p>year</p></th>
+                    <th><p>From year 2000 to 2019.</p></th>
+                </tr>
+            </table>
+        </div>
+
+        <div style = "padding-left:50px;">
+            <p style = "font-size: 25px;"> Target Variable </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>death rate</p></th>
+                    <th><p> per 100,000 people</p></th>
+                    <th><p></p>Crude death rate indicates the number of deaths occurring during the year, per 100,000 population estimated at midyear.</p></th>
+                </tr>
+            </table>
+        </div>
+
+        <div style = "padding-left:50px;">
+            <p style = "font-size: 40px;"> 6 Categories of factors </p>
+            <p style = "font-size: 25px;"> 1.) Populational Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>population</p></th>
+                    <th><p>number of people</p></th>
+                    <th><p>Total population counts all residents regardless of legal status or citizenship. The values shown are midyear estimates.</p></th>
+                </tr>
+                <tr>
+                    <th><p>urban population</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>Urban population refers to people living in urban areas (city or town) as defined by national statistical offices.</p></th>
+                </tr>
+                <tr>
+                    <th><p>population density</p></th>
+                    <th><p>people per sq.km of land area</p></th>
+                    <th><p>Population density is midyear population divided by land area in square kilometers.</p></th>
+                </tr>
+                <tr>
+                    <th><p>age0-14 - % of total population</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>Population between the ages 0 to 14 as a percentage of the total population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>age15-64</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>Population between the ages 15 to 64 as a percentage of the total population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>age65+</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>Population ages 65 and above as a percentage of the total population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>schooling years</p></th>
+                    <th><p>year</p></th>
+                    <th><p>Average number of years of total schooling across all education levels.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 25px;"> 2.) Economical and Political Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>gdp per capita</p></th>
+                    <th><p>current US$</p></th>
+                    <th><p>GDP per capita is gross domestic product divided by midyear population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>inflation</p></th>
+                    <th><p>annual %</p></th>
+                    <th><p>Inflation as measured by the consumer price index.</p></th>
+                </tr>
+                <tr>
+                    <th><p>unemployment</p></th>
+                    <th><p>% of total labor force</p></th>
+                    <th><p>Unemployment refers to the share of the labor force that is without work but available for and seeking employment.</p></th>
+                </tr>
+                <tr>
+                    <th><p>health expenditure</p></th>
+                    <th><p>% of GDP</p></th>
+                    <th><p>Estimates of current health expenditures include healthcare goods and services consumed during each year.</p></th>
+                </tr>
+                <tr>
+                    <th><p>corruption index</p></th>
+                    <th><p>scale from 0 (highly corrupt) to 100 (very clean)</p></th>
+                    <th><p>The Corruption Perceptions Index (CPI) measures how corrupt each country’s public sector is perceived to be, according to experts and businesspeople.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 25px;"> 3.) Environmental Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>forest area</p></th>
+                    <th><p>% of land area</p></th>
+                    <th><p>Forest area is land under natural or planted stands of trees of at least 5 meters in situ excludes tree stands in agricultural production systems and trees in urban parks and gardens.</p></th>
+                </tr>
+                <tr>
+                    <th><p>greenhouse emissions</p></th>
+                    <th><p>kg per capita</p></th>
+                    <th><p>Total greenhouse gas emissions in kg divided by midyear population. The primary greenhouse gases are carbon dioxide, methane, nitrous oxide, and ozone.</p></th>
+                </tr>
+                <tr>
+                    <th><p>electricity access</p></th>
+                    <th><p>% of population</p></th>
+                    <th><p>Access to electricity is the percentage of population with access to electricity.</p></th>
+                </tr>
+                <tr>
+                    <th><p>energy consumption</p></th>
+                    <th><p>kWh per capita</p></th>
+                    <th><p>Total consumption of energy in kWh divided by midyear population.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 25px;"> 4.) Health Related Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>bmi</p></th>
+                    <th><p>ranging from <18.5 to >40</p></th>
+                    <th><p>Body mass index is a weight-to-height ratio, calculated by dividing one's weight in kilograms by the square of one's height in meters.</p></th>
+                </tr>
+                <tr>
+                    <th><p>asthma</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>The share of the population with asthma.</p></th>
+                </tr>
+                <tr>
+                    <th><p>anxiety disorders</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>The share of population suffering from an anxiety disorder.</p></th>
+                </tr>
+                <tr>
+                    <th><p>depressive disorders</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>The share of population suffering from a depression.</p></th>
+                </tr>
+                <tr>
+                    <th><p>schizophrenia</p></th>
+                    <th><p>% of total population</p></th>
+                    <th><p>The share of population suffering with schizophrenia.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 25px;"> 5.) Vaccination Coverage Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>DTP3 %vaccinate</p></th>
+                    <th><p>% coverage among 1-year-olds</p></th>
+                    <th><p>Diphtheria tetanus toxoid and pertussis (DTP3) immunization coverage among 1-year-olds.</p></th>
+                </tr>
+                <tr>
+                    <th><p>HepB3 %vaccinate</p></th>
+                    <th><p>% coverage among 1-year-olds</p></th>
+                    <th><p>Hepatitis B (HepB3) immunization coverage among 1-year-olds.</p></th>
+                </tr>
+                <tr>
+                    <th><p>Measles %vaccinate</p></th>
+                    <th><p>% coverage among 1-year-olds</p></th>
+                    <th><p>Measles-containing-vaccine first-dose (MCV1) immunization coverage among 1-year-olds.</p></th>
+                </tr>
+                <tr>
+                    <th><p>Polio %vaccinate</p></th>
+                    <th><p>% coverage among 1-year-olds</p></th>
+                    <th><p>Polio (Pol3) immunization coverage among 1-year-olds.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 25px;"> 6.) Disease and Virus Factors </p>
+            <table style = "padding-left: 50px;text-align: left;">
+                <tr>
+                    <th style = "text-align: center;">Variable</th>
+                    <th style = "text-align: center;">Units</th>
+                    <th style = "text-align: center;"><p>descripition</p></th>
+                </tr>
+                <tr>
+                    <th><p>hepatitis b</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Incidence of hepatitis B, measured as the number of new cases of hepatitis B per 100,000 individuals in a given population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>tuberculosis</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Incidence of tuberculosis is the estimated number of new and relapse tuberculosis cases arising in a given year, expressed as the rate per 100,000 population.</p></th>
+                </tr>
+                <tr>
+                    <th><p>cardiovascular diseases</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of cardiovascular diseases (general term for conditions affecting the heart or blood vessels, e.g., coronary heart disease, cerebrovascular disease) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>chronic respiratory diseases</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of chronic respiratory diseases (diseases that affect the lungs and airways, e.g., asthma, lung cancer) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>diabetes and kidney diseases</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of diabetes and kidney diseases (a metabolic disease that causes high blood sugar) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>enteric infections</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of enteric infections (caused by micro-organisms such as viruses, bacteria and parasites that cause intestinal illness. These diseases most frequently result from consuming contaminated food or water) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>neoplasms</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of neoplasms (a type of abnormal and excessive growth of tissue that can lead to cancer) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>nutritional deficiencies</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of nutritional deficiencies (occurs when the body is not getting enough nutrients such as vitamins and minerals) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>sexually transmitted infections</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of sexually transmitted infections (infections that are spread predominantly by unprotected sexual contact, e.g., genital herpes, HIV/AIDS) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+                <tr>
+                    <th><p>tropical diseases and malaria</p></th>
+                    <th><p>new cases per 100,000 people </p></th>
+                    <th><p>Burden of tropical diseases (any disease that is indigenous to tropical or subtropical areas of the world or that occurs principally in those areas, e.g., malaria, yellow fever, dengue) among population expressed in DALYs per 100,000 people.</p></th>
+                </tr>
+            </table>
+            <p style = "font-size: 15px;">***Definition of Disability-Adjusted Life Years (DALYs) : <br>&emsp;&emsp;The overall burden of disease is assessed using the disability-adjusted life year (DALY), 
+                a time-based measure that combines years of life lost due to premature mortality (YLLs) 
+                and years of life lost due to time lived in states of less than full health, or years of healthy life lost due to disability (YLDs). 
+                One DALY represents the loss of the equivalent of one year of full health. </p>
+        </div>
+    </div>
+</body>
+</html>
